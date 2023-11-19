@@ -1,0 +1,17 @@
+C:\Users\hexha\source\repos\helper\helper\bin\Release\net7.0-windows\helper.exe
+C:\Users\hexha\source\repos\helper\helper\bin\Release\net7.0-windows\helper.deps.json
+C:\Users\hexha\source\repos\helper\helper\bin\Release\net7.0-windows\helper.runtimeconfig.json
+C:\Users\hexha\source\repos\helper\helper\bin\Release\net7.0-windows\helper.dll
+C:\Users\hexha\source\repos\helper\helper\bin\Release\net7.0-windows\helper.pdb
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\helper.csproj.AssemblyReference.cache
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\helper.main_panel.resources
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\helper.csproj.GenerateResource.cache
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\helper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\helper.AssemblyInfoInputs.cache
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\helper.AssemblyInfo.cs
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\helper.csproj.CoreCompileInputs.cache
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\helper.dll
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\refint\helper.dll
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\helper.pdb
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\helper.genruntimeconfig.cache
+C:\Users\hexha\source\repos\helper\helper\obj\Release\net7.0-windows\ref\helper.dll

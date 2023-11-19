@@ -1,0 +1,23 @@
+{
+  "runtimeOptions": {
+    "tfm": "net7.0",
+    "frameworks": [
+      {
+        "name": "Microsoft.NETCore.App",
+        "version": "7.0.0"
+      },
+      {
+        "name": "Microsoft.WindowsDesktop.App",
+        "version": "7.0.0"
+      }
+    ],
+    "configProperties": {
+      "System.Diagnostics.Debugger.IsSupported": false,
+      "System.Diagnostics.Tracing.EventSource.IsSupported": false,
+      "System.Globalization.Invariant": true,
+      "System.Globalization.PredefinedCulturesOnly": true,
+      "System.Resources.UseSystemResourceKeys": true,
+      "System.Threading.Thread.EnableAutoreleasePool": false
+    }
+  }
+}

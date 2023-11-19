@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <StartupObject></StartupObject>
+    <IsPublishable>true</IsPublishable>
+	  <AutoreleasePoolSupport>false</AutoreleasePoolSupport>
+	  <DebuggerSupport>false</DebuggerSupport>
+	  <EventSourceSupport>false</EventSourceSupport>
+	  <InvariantGlobalization>true</InvariantGlobalization>
+	  <UseSystemResourceKeys>true</UseSystemResourceKeys>
+	  <ApplicationIcon>clueless.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="clueless.ico" />
+  </ItemGroup>
+
+</Project>

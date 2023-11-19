@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "PVvcBNMLA2WnlS2zcDil4Ih03HT51lpLVYNsNuZJehhfa3APOnG4WjieUBezcLJEV0H2fFz/U/tqmn/T4jpv5g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hexha\\source\\repos\\helper\\helper\\helper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hexha\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\7.0.5\\microsoft.netcore.app.runtime.win-x86.7.0.5.nupkg.sha512",
+    "C:\\Users\\hexha\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\7.0.5\\microsoft.windowsdesktop.app.runtime.win-x86.7.0.5.nupkg.sha512",
+    "C:\\Users\\hexha\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\7.0.5\\microsoft.aspnetcore.app.runtime.win-x86.7.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
