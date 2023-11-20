@@ -1,7 +1,4 @@
-﻿using System.Windows.Forms;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Text;
+﻿using System.Text;
 using functions;
 
 namespace helper
@@ -9,7 +6,7 @@ namespace helper
     public partial class main_panel : Form
     {
         private OpenFileDialog ofd;
-        private Image rawimage = null;
+        private Image selectedImage;
         private int maxZoomLevel = 8;
         private int zoomLevel = 3;
 
@@ -38,6 +35,7 @@ namespace helper
                     using (Image loadedImage = Image.FromFile(ofd.FileName))
                     {
                         open_image.Text = fileName;
+                        selectedImage = loadedImage;
                         Preview_box.Image = newImage(loadedImage, zoomLevel);
                         width_label.Text = "W: " + loadedImage.Width;
                         height_label.Text = "H: " + loadedImage.Height;
@@ -76,11 +74,13 @@ namespace helper
 
         private async void convert_image_Click_1(object sender, EventArgs e)
         {
-            if (rawimage != null)
+            if (selectedImage != null)
             {
                 ButtonsEnabled(false);
 
-                await ImageToText(new Bitmap(rawimage));
+                Bitmap map = new Bitmap(selectedImage);
+
+                await ImageToText(map);
 
                 ButtonsEnabled(true);
                 count_label.Text = "Character count: " + output_box.Text.Length;
@@ -108,9 +108,9 @@ namespace helper
 
         private void updateImageZoom()
         {
-            if (rawimage != null)
+            if (selectedImage != null)
             {
-                Preview_box.Image = newImage(rawimage, zoomLevel);
+                Preview_box.Image = newImage(selectedImage, zoomLevel);
             }
         }
 
@@ -124,7 +124,7 @@ namespace helper
                 g.DrawImage(image, new Rectangle(Point.Empty, newimg.Size));
             }
 
-            return newimg; ;
+            return newimg;
         }
 
         private async Task ImageToText(Bitmap image)
@@ -133,8 +133,15 @@ namespace helper
             await Task.Run(() =>
             {
                 output_box.ResetText();
+
                 Dictionary<int, Color> usedColors = new Dictionary<int, Color>(); // stores all the colors
                 var colorid = 0;
+                bool useHexColor = !raw_hex_check.Checked;
+                bool useSingleLine = single_line_check.Checked;
+                bool useCoding = coding_check.Checked;
+                bool useCustomSize = custom_size_check.Checked && !raw_hex_check.Checked;
+                bool useCustomSizeForOutput = custom_size_check.Checked && (single_line_check.Checked || !coding_check.Checked);
+
                 for (int i = 0; i < image.Height; i++)
                 {
                     StringBuilder result = new StringBuilder();
@@ -155,7 +162,7 @@ namespace helper
 
                         if (id != prevID)
                         {
-                            result.Append("[" + usedColors[id].ToHex(color.A != 255) + "]");
+                            result.Append($"[{usedColors[id].ToHex(color.A != 255)}]");
                         }
                         result.Append("█");
                         prevID = id;
@@ -163,20 +170,23 @@ namespace helper
                     string row = result.ToString();
 
                     // individual line formatting
-                    if (!raw_hex_check.Checked)
+                    if (!useHexColor)
                     {
                         row = row.hexColor();
                     }
-                    if (!single_line_check.Checked)
+
+                    if (!useSingleLine)
                     {
-                        if (coding_check.Checked)
+                        if (useCoding)
                         {
-                            if (custom_size_check.Checked && !raw_hex_check.Checked)
+                            if (useCustomSize)
                             {
                                 row = $"<size={size_number.Value}%>{row}</size>";
                             }
+
                             row = $"rows.Add(\"{row}\");";
                         }
+
                         row = Environment.NewLine + row;
                     }
                     else
@@ -185,18 +195,20 @@ namespace helper
                     }
                     UpdateOutputBox(row);
                 }
+
                 // general formatting
-            
-                if (custom_size_check.Checked && (single_line_check.Checked || !coding_check.Checked))
+                if (useCustomSizeForOutput)
                 {
                     output_box.Text = $"<size={size_number.Value}%>{output_box.Text}</size>";
                 }
-                if (coding_check.Checked)
+
+                if (useCoding)
                 {
                     if (single_line_check.Checked)
                     {
                         output_box.Text = $"rows.Add(\"{output_box.Text}\");";
                     }
+
                     output_box.Text = $"List<string> rows = new List<string>();" + output_box.Text;
                 }
             });
